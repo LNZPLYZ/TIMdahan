@@ -48,21 +48,65 @@ Below are screenshots demonstrating the application's core APIs in both **Succes
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Requirements
 
 - **Language:** Java 11
 - **Target / Compile SDK:** Android 15 (API 37) | **Min SDK:** Android 7.0 (API 24)
-- **Database:** SQLite (`timdahan.db` v3) & Firebase Realtime Database
+- **Database:** Local SQLite (`timdahan.db` v3) & Firebase Realtime Database
 - **Hardware Interop:** Google ML Kit Code Scanner
 - **Architecture:** Native Android XML, Custom Views, Material Design 3
 
 ---
 
-## 📦 How to Build and Run
+## ⚙️ Setup Steps
 
-1. Clone this repository:
+### 1. Prerequisites
+* **Android Studio** (Ladybug / 2024.2.1 or newer recommended)
+* **JDK 11** or higher configured in Android Studio
+* Android Device or Emulator running **Android 7.0 (API Level 24)** or higher
+
+### 2. Installation
+1. Clone this repository to your local machine:
    ```bash
    git clone https://github.com/YOUR_USERNAME/TIMdahan.git
    ```
-2. Open the project in **Android Studio**.
-3. Build and run on an Android Device or Emulator (`Shift + F10`).
+2. Open **Android Studio**, select **Open**, and navigate to the cloned `TIMdahan` directory.
+3. Allow Gradle to perform project sync and download required dependencies.
+4. Select your connected Android device or emulator and press **Run 'app'** (`Shift + F10`).
+
+---
+
+## 🔑 Instructions for Adding API Keys & Configuration Files
+
+### 1. Firebase Realtime Database Setup (`google-services.json`)
+The application uses Firebase Realtime Database for optional cloud backup and account restoration across devices.
+
+1. Go to the [Firebase Console](https://console.firebase.google.com/) and create a new Firebase project (or select an existing project).
+2. Register a new Android App with the package name:  
+   `com.example.timdahan`
+3. Download the generated `google-services.json` configuration file.
+4. Place the `google-services.json` file inside the `app/` folder of the project:  
+   `TIMdahan/app/google-services.json`
+5. In your Firebase Console, navigate to **Build $\rightarrow$ Realtime Database**, create a database instance, and configure Database Security Rules:
+   ```json
+   {
+     "rules": {
+       ".read": "auth != null",
+       ".write": "auth != null"
+     }
+   }
+   ```
+
+---
+
+### 2. Google Play Services ML Kit Barcode Scanner API
+The project uses **Google Code Scanner API** (`com.google.android.gms:play-services-code-scanner:16.1.0`) powered by Google ML Kit.
+
+* **No Manual API Key Required:** The scanner uses Google Play Services to run machine learning models on-device. No secret API key string needs to be hardcoded in code.
+* **Automatic Model Download:** The model dependency is configured in `AndroidManifest.xml` via:
+  ```xml
+  <meta-data
+      android:name="com.google.mlkit.vision.DEPENDENCIES"
+      android:value="barcode" />
+  ```
+  Google Play Services automatically downloads the ML Kit barcode model upon app installation.
