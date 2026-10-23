@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Top Header with Back Action and Title -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/btn_back_sale"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="Back to Dashboard"
+                    android:focusable="true"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_back"
+                    app:tint="@color/text_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@id/btn_back_sale"
+                    android:text="Record Sale"
+                    android:textColor="@color/text_dark"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <!-- Product Selection Section Header with Barcode Button at Top-Right -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="Select Product"
+                    android:textColor="@color/text_dark"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_scan_sale_barcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/rounded_button"
+                    android:paddingHorizontal="14dp"
+                    android:text="Scan Barcode"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:backgroundTint="@null" />
+            </RelativeLayout>
+
+            <!-- Product Search AutoComplete Input -->
+            <AutoCompleteTextView
+                android:id="@+id/actv_product_search"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_input"
+                android:completionThreshold="1"
+                android:hint="Type product name to search..."
+                android:paddingHorizontal="14dp"
+                android:popupBackground="@color/white"
+                android:textColor="@color/text_dark"
+                android:textColorHint="@color/text_muted"
+                android:textSize="14sp" />
+
+            <!-- Selected Product Info Banner (Stock & Price) -->
+            <TextView
+                android:id="@+id/tv_selected_product_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/button_blue"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <!-- Stock Limit Error Text -->
+            <TextView
+                android:id="@+id/tv_stock_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/error_text"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <!-- Quantity Label -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Quantity"
+                android:textColor="@color/text_dark"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- Quantity Counter Row (Typeable EditText + Minus/Plus buttons) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_minus"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:alpha="0.5"
+                    android:background="@drawable/rounded_button"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:text="−"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@null" />
+
+                <EditText
+                    android:id="@+id/et_quantity"
+                    android:layout_width="80dp"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:background="@drawable/rounded_input"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:hint="0"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:textColor="@color/text_dark"
+                    android:textColorHint="@color/text_muted"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_plus"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:alpha="0.5"
+                    android:background="@drawable/rounded_button"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:padding="0dp"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@null" />
+            </LinearLayout>
+
+            <!-- Divider Line -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/border_gray" />
+
+            <!-- Subtotal Card Box (Unit Price ₱0.00 / Subtotal ₱0.00) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/rounded_card"
+                android:elevation="2dp"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total Amount:"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_subtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₱0.00"
+                    android:textColor="@color/text_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Record Sale Button (Disabled until product & valid quantity selected) -->
+            <Button
+                android:id="@+id/btn_record_sale"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:alpha="0.5"
+                android:background="@drawable/rounded_button"
+                android:enabled="false"
+                android:text="Record Sale"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null" />
+
+            <!-- Instruction Hint near bottom -->
+            <TextView
+                android:id="@+id/tv_sale_instruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="Select an item first to make a record."
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+            <!-- Divider Line -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/border_gray" />
+
+            <!-- Recent Transactions Section Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/btn_view_all_transactions"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Recent Transactions"
+                        android:textColor="@color/text_dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Your latest recorded sales"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btn_view_all_transactions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="48dp"
+                    android:padding="4dp"
+                    android:text="View All →"
+                    android:textColor="@color/button_blue"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- Active State: Recent Transactions List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recent_transactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
+
+            <!-- Empty State: No Recent Transactions -->
+            <LinearLayout
+                android:id="@+id/layout_empty_recent_transactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_card"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No transactions yet."
+                    android:textColor="@color/text_dark"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Your completed sales will appear here."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

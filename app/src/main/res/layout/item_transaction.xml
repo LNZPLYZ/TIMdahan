@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/rounded_card"
+    android:elevation="2dp"
+    android:gravity="center_vertical"
+    android:padding="14dp">
+
+    <!-- Transaction Icon -->
+    <ImageView
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#EFF6FF"
+        android:contentDescription="Transaction Icon"
+        android:padding="10dp"
+        android:src="@android:drawable/ic_menu_save"
+        app:tint="@color/button_blue" />
+
+    <!-- ID & Date Container -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_transaction_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaction #1001"
+            android:textColor="@color/text_dark"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_transaction_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="2025-02-23 14:30:00"
+            android:textColor="#6B7280"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- Amount & Quantity Container -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_transaction_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="₱0.00"
+            android:textColor="@color/text_dark"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_transaction_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="1 item"
+            android:textColor="#6B7280"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+</LinearLayout>

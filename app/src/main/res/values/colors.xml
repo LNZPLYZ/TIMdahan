@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Final Color System Specification -->
+    <color name="brand_blue">#38B6FF</color>
+    <color name="button_blue">#2563EB</color>
+    <color name="bg_gray">#F9FAFB</color>
+    <color name="text_dark">#1F2937</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_muted">#9CA3AF</color>
+    <color name="border_gray">#D1D5DB</color>
+    <color name="success_green">#22C55E</color>
+    <color name="error_red">#EF4444</color>
+    <color name="success_text">#15803D</color>
+    <color name="error_text">#B91C1C</color>
+    <color name="success_bg_tint">#F0FDF4</color>
+    <color name="error_bg_tint">#FEF2F2</color>
+    <color name="info_bg_tint">#EFF6FF</color>
+    <color name="icon_bg_blue">#EFF6FF</color>
+    <color name="badge_red_bg">#FEF2F2</color>
+    <color name="chip_bg_gray">#F3F4F6</color>
+
+    <!-- Rank Badges -->
+    <color name="rank_gold_bg">#FEF3C7</color>
+    <color name="rank_gold_text">#D97706</color>
+    <color name="rank_blue_bg">#E0F2FE</color>
+    <color name="rank_blue_text">#0284C7</color>
+    <color name="rank_gray_bg">#F3F4F6</color>
+    <color name="rank_gray_text">#4B5563</color>
+</resources>

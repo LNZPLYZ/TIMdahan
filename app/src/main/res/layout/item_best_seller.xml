@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/rounded_card"
+    android:gravity="center_vertical"
+    android:padding="12dp">
+
+    <!-- Rank Circle -->
+    <TextView
+        android:id="@+id/tv_rank"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#FEF3C7"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="#D97706"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <!-- Product Name & Units Sold Container -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_best_seller_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Name"
+            android:textColor="@color/text_dark"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_best_seller_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="0 units sold"
+            android:textColor="#6B7280"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

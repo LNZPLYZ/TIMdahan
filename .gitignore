@@ -1,0 +1,30 @@
+# Built application & generated files
+*.apk
+*.aar
+*.ap_
+*.aab
+*.dex
+*.class
+bin/
+gen/
+out/
+build/
+app/build/
+.gradle/
+
+# Local configuration files (contains local Android SDK paths)
+local.properties
+
+# Log Files
+*.log
+
+# Android Studio / IntelliJ IDEA files
+.idea/
+*.iml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Note: If publishing to a PUBLIC GitHub repository, uncomment the line below:
+# app/google-services.json

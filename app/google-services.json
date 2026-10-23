@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "89005480275",
+    "project_id": "timdahan-d27a6",
+    "storage_bucket": "timdahan-d27a6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89005480275:android:e02b25bf31b2e5790469a6",
+        "android_client_info": {
+          "package_name": "com.example.timdahan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcIGHaPhljMfPTGSfV77-q2974kPSOnVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+
+  "configuration_version": "1"
+}
